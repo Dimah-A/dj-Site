@@ -19,4 +19,18 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'AdminController@index')->name('admin');
+
+//HOME
+Route::get('/tabHome','HomeController@index')->name('tabHome');
+Route::post('/saveH','HomeController@store')->name('saveH');
+Route::get('/deleteH/{id}', 'HomeController@destroy')->name('deleteH');
+
+// Route::get('/pageModifA','AlbumController@index' )->name('modifA');
+// Route::get('/addAlbum','AlbumController@create' )->name('addAlbum');
+// Route::post('/save','AlbumController@store')->name('save');
+// Route::get('/delete/{id}', 'AlbumController@destroy')->name('delete');
+// Route::get('/editAlbum/{id}','AlbumController@edit')->name('edit');
+// Route::post('/updatealbum/{id}','AlbumController@update' )->name('update');
+// Route::get('/show_album/{id}', 'AlbumController@show')->name('show_album');

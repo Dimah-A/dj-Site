@@ -9,7 +9,7 @@
           <h2>New trends in music</h2>
           <small>Posted on: Jan 20, 2013</small>
 
-          <a href="#" class="thumbnail"><img src="assets/images/1.jpg" class="img-reponsive" alt="blog" /></a>
+          <a href="#" class="thumbnail"><img src="{{asset('/images/1.jpg')}}" class="img-reponsive" alt="blog" /></a>
 
           <div class="col-lg-8 col-lg-offset-2">
             <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the

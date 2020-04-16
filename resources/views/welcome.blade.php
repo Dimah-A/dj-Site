@@ -14,5 +14,4 @@
 @include('partials/modal2')
 
 
-
 @endsection
