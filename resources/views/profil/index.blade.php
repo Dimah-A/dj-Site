@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminlte::page')
 
 @section('content')
 <h1 class="alert alert-info d-flex justify-content-center" role="alert">
@@ -24,7 +24,7 @@ My Profil  </h1>
                 </div>
                 
                 <a 
-                href="{{route("edit_profil",$user->id)}}" 
+                href="{{route("profil.edit",$user->id)}}" 
                 class="btn btn-warning w-25">Modifier</a>
                 
          

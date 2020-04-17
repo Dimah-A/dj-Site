@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Role;
+use App\Home;
+use App\About;
+
 class WelcomeController extends Controller
 {
     /**
@@ -13,14 +15,16 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        // $roles=Role::all(); 
-        
-        return view('admin',compact('roles'));
+        $homes = Home::all();
+        $abouts = About::all();
+
+        // dd($portfolio);
+        return view('welcome' ,compact('homes','abouts'));    
     }
 
-    public function admin()
-    {
-         $this->authorize('index',User::class); return view("admin");
+ 
+    public function admin(){ 
+        $this->authorize('index',User::class); return view("admin"); 
     }
 
     /**

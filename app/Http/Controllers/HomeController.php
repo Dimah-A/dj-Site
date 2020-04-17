@@ -29,33 +29,65 @@ class HomeController extends Controller
 
         $homes = Home::all();
         // dd($portfolio);
-        return view('tabHome' ,compact('homes'));    }
+        return view('tabHome' ,compact('homes'));    
+    }
 
-    public function edit(Home $home)
+    public function edit( $id)
     {
-        
-        return view('home.edit');
+        $home=Home::find($id);
+   
+        return view('editHome',compact('home'));
         
    
     }
     public function store(Request $request)
     {
         $validatedData = $request->validate([  
-            'icon' => 'required|',
+            // 'icon' => 'required|',
             'titre' => 'required|min:3',
             'paragraphe' => 'required|min:5',
             'img' => 'required|',  
-
-            ]);  
-            // $newicon = Storage::disk('public')->put('',$icon);
+        ]);  
+            
             $img = $request->file('img');
             $newName = Storage::disk('public')->put('',$img);
             $home = new Home();
+            $home->icon = $request->input('icon');
             $home->titre = $request->input('titre');
-            $home = $request->input('icon');
+            $home->paragraphe = $request->input('paragraphe');
             $home->img = $newName;
-           
             $home->save();
             return redirect()->route('tabHome');        
     }
+
+    public function update(Request $request,  $id)
+    {
+        $home =Home::find($id);
+        Storage::disk('public')->delete($home->img);
+        
+        $img = $request->file('img');
+        $newName = Storage::disk('public')->put('',$img);
+        
+        $home->icon = $request->input('icon');
+        $home->titre = $request->input('titre');
+        $home->paragraphe = $request->input('paragraphe');
+        $home->img = $newName;
+        $home->save();
+
+        return redirect()->route('tabHome');
+
+        
+    }
+
+
+   public function destroy($id){
+
+    $home= Home::find($id);
+
+
+    $home->delete();
+    return  redirect()->route('tabHome');
+  }
+
 }
+
