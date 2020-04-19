@@ -43,6 +43,8 @@ class ProfilController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|min:3',
             'email' => 'required',
+            'adresse' => 'required',
+            'numero' => 'required',
             // 'password' => 'required|min:8',
 
             ]);
@@ -50,6 +52,8 @@ class ProfilController extends Controller
         $user = Auth::user();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->adresse = $request->input('adresse');
+        $user->numero = $request->input('numero');
         // $user->password = $request->input('password');
         $user->save();
         return redirect()->route('profil.index');
@@ -91,6 +95,9 @@ class ProfilController extends Controller
         $user =Auth::user();
         $user->name = $request->input('name');
         $user->email = $request->input('email');
+        $user->adresse = $request->input('adresse');
+        $user->numero = $request->input('numero');
+
         // $user->password = $request->input('password');
         $user->save();
         // dd($user);

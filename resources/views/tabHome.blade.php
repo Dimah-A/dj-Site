@@ -2,7 +2,7 @@
 @extends('adminlte::page')
 
 @section('content')
-
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 
 {{-- <div class="row text-center d-flex justify-content-center">
@@ -107,6 +107,15 @@
             <div class="text-danger">{{ $message }}
             </div>
             @enderror
+
+              {{-- INPUT son --}}
+              <label class="text-secondary">son</label>
+              <textarea type="text" value="@if($errors->first('son'))
+              @else{{old('son')}}  @endif" class="form-control mb-3 @error('son') is-invalid @enderror" name='son'  placeholder="son" ></textarea>
+              @error('son')    
+              <div class="text-danger">{{ $message }}
+              </div>
+              @enderror
             
         </div>
         <button  type='submit' class="btn btn-info mb-5 mt-5">SEND</button>
@@ -114,7 +123,8 @@
     </form>
     
     {{---------------------------------------------------------------------------------------------------------}}
-    
+
+
     <table class="table table-striped  mt-5">
         <thead class="border border-info ">
             <tr class="bg-dark" >
@@ -123,6 +133,8 @@
                 <th scope="col">Titre</th>
                 <th scope="col">Paragraphe</th>
                 <th scope="col">Image</th>
+                <th scope="col">Action</th>
+
                 
                 
                 
@@ -131,11 +143,11 @@
         
         <tbody>
             @foreach ($homes as $home)
-            <tr>
-                
-                
+            <tr>      
                 <th scope="row">{{$home->id}}</th>
                 <td><span class="{{$home->icon}}"></span></td>
+              
+                
                 <td>{{$home->titre}}</td>
 
                 <td>{{$home->paragraphe}}</td>

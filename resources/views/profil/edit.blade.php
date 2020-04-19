@@ -1,11 +1,14 @@
-@extends('adminlte::page')
+@extends('layouts.app')
 
 @section('content')
-<h1 class="alert alert-info d-flex justify-content-center" role="alert">
+<h1 class="alert alert-secondary text-center" role="alert">
      MODIFICATION  </h1>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <div class="container ">
+        <div class="text-center my-5 ">
+            <a href="{{route('site')}}"><button class="btn btn-warning text-white">Retour</button></a>
+        </div>
+        <div class="row ">
+            <div class="col-md-8 ">
                 <div class="card">
                     <div class="card-header">MY INFORMATION</div>
                     
@@ -17,7 +20,7 @@
                         @endif
 
 
-                        <form  action="{{asset('profil.save')}}" method="post" class="form-inline">
+                        <form  action="{{asset('profil.save')}}" method="post" class="form-inline ">
                             @csrf
                             <div class="text-center mx-auto col-6 py-5 ">
                                 
@@ -37,6 +40,22 @@
                                     <div class="text-danger">{{ $message }}
                                     </div>
                                     @enderror 
+
+                                    {{-- INPUT adresse   --}}     
+                                    <label>adresse</label>
+                                    <input type="adresse" value="{{Auth::user()->adresse}}" class="form-control mb-3 @error('adresse') is-invalid @enderror" name='adresse'  placeholder="email"/>
+                                    @error('email')
+                                    <div class="text-danger">{{ $message }}
+                                    </div>
+                                    @enderror 
+
+                                     {{-- INPUT numero   --}}     
+                                     <label>numero</label>
+                                     <input type="number" value="{{Auth::user()->numero}}" class="form-control mb-3 @error('numero') is-invalid @enderror" name='numero'  placeholder="email"/>
+                                     @error('email')
+                                     <div class="text-danger">{{ $message }}
+                                     </div>
+                                     @enderror 
                                 </div>
                                 <button  type='submit' class="btn btn-danger mb-5">SEND</button>
                             </form>         

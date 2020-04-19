@@ -7,7 +7,7 @@
     
     <div class="p-3  bg-secondary  d-flex justify-content-center"><h1 class="text-light">Page de Modification du About</h1></div>
 
-        <form  action="/about.update/{{$about->id}}" method="post" class="form-inline" enctype="multipart/form-data">
+        <form  action="/updateAbout/{{$about->id}}" method="post" class="form-inline" enctype="multipart/form-data">
             @csrf
             <div class="text-center mx-auto col-6 py-5 ">
                     <div class="border border-info p-5 bg-dark text-white rounded">    

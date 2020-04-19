@@ -240,6 +240,29 @@ return [
             
             'label_color' => 'success',
         ],
+
+        [
+            'text'        => 'Tab Album',
+            'url'         => '/album.tab',
+            'icon'        => 'far fa-fw fa-file',
+            
+            'label_color' => 'success',
+        ],
+
+        [
+            'text'        => 'Tab PlayList',
+            'url'         => '/playlist.tab',
+            'icon'        => 'far fa-fw fa-file',
+            
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Tab Events Blog ',
+            'url'         => '/about.tab',
+            'icon'        => 'far fa-fw fa-file',
+            
+            'label_color' => 'success',
+        ],
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

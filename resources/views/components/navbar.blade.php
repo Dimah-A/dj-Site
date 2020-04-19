@@ -47,6 +47,8 @@
             <li><a href="#album">Albums</a></li>
             <li><a href="#blogevent">Events & Blog</a></li>
             <li><a href="#contact">Contact</a></li>
+          <li><a href="{{route('profil.index')}}">Profil</a></li>
+
           
 
 

@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/', 'WelcomeController@index');
+Route::get('/', 'WelcomeController@index')->name('site');
 Route::get('/admin', 'WelcomeController@admin')->name('admin'); 
 
 
@@ -27,7 +27,7 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 
 //PROFIL
 Route::get('/profil.index', 'ProfilController@index')->name('profil.index');
-Route::get('/profil.edit/{id}', 'ProfilController@edit')->name('profil.edit');
+Route::get('/profil.edit', 'ProfilController@edit')->name('profil.edit');
 Route::post('/profil.update/{id}','ProfilController@update' )->name('profil.update');
 Route::post('/profil.save','ProfilController@store' )->name('profil.save');
 
@@ -42,7 +42,26 @@ Route::post('/updateHome/{id}','HomeController@update' )->name('updateHome');
 Route::get('/about.tab','AboutController@index')->name('about.tab');
 Route::post('/about.save','AboutController@store')->name('about.save');
 Route::get('/about.delete/{id}', 'AboutController@destroy')->name('about.delete');
-Route::get('/about.update/{id}','AboutController@update' )->name('about.update');
+Route::get('/about.edit/{id}', 'AboutController@edit')->name('about.edit');
+Route::post('/updateAbout/{id}','AboutController@update' )->name('updateAbout');
+
+
+//ALBUM
+Route::get('/album.tab','AlbumController@index')->name('album.tab');
+Route::post('/album.save','AlbumController@store')->name('album.save');
+Route::post('/updateAlbum/{id}','AlbumController@update' )->name('updateAlbum');
+Route::get('/album.delete/{id}', 'AlbumController@destroy')->name('album.delete');
+Route::get('/album.edit/{id}', 'AlbumController@edit')->name('album.edit');
+
+//PLAYLIST
+
+Route::get('/playlist.tab','PlaylistController@index')->name('playlist.tab');
+Route::post('/playlist.save','PlaylistController@store')->name('playlist.save');
+Route::post('/updateplaylist/{id}','PlaylistController@update' )->name('updateplaylist');
+Route::get('/playlist.delete/{id}', 'PlaylistController@destroy')->name('playlist.delete');
+Route::get('/playlist.edit/{id}', 'PlaylistController@edit')->name('playlist.edit');
+
+
 
 // Route::get('/pageModifA','AlbumController@index' )->name('modifA');
 // Route::get('/addAlbum','AlbumController@create' )->name('addAlbum');
@@ -51,3 +70,8 @@ Route::get('/about.update/{id}','AboutController@update' )->name('about.update')
 // Route::get('/editAlbum/{id}','AlbumController@edit')->name('edit');
 // Route::post('/updatealbum/{id}','AlbumController@update' )->name('update');
 // Route::get('/show_album/{id}', 'AlbumController@show')->name('show_album');
+Auth::routes();
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');

@@ -1,7 +1,7 @@
-@extends('adminlte::page')
+@extends('layouts/app')
 
 @section('content')
-<h1 class="alert alert-info d-flex justify-content-center" role="alert">
+<h1 class="alert alert-secondary d-flex justify-content-center text-center " role="alert">
 My Profil  </h1>
 <div  class="container">
     <div class="row justify-content-center">
@@ -18,7 +18,9 @@ My Profil  </h1>
                     
                     @if (Auth::check())
                     {{Auth::user()->name}} <br>
-                    {{Auth::user()->email}}
+                    {{Auth::user()->email}} <br>
+                    {{Auth::user()->numero}} <br>
+                    {{Auth::user()->adresse}}
                     @endif 
 
                 </div>

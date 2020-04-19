@@ -48,13 +48,13 @@ class AboutController extends Controller
         ]);  
             
             $img = $request->file('img');
-            $newName = Storage::disk('public')->put('',$img);
+            $aboutImg = Storage::disk('public')->put('',$img);
             $about = new About();
             $about->icon = $request->input('icon');
             $about->titre = $request->input('titre');
             $about->paragraphe = $request->input('paragraphe');
             $about->citation = $request->input('citation');
-            $about->img = $newName;
+            $about->img = $aboutImg;
             $about->save();
             return redirect()->route('about.tab');  
     }
@@ -78,7 +78,8 @@ class AboutController extends Controller
      */
     public function edit(About $about)
     {
-        //
+        $about= About::find($id);
+        return view('about.edit',compact('about'));
     }
 
     /**
@@ -90,28 +91,16 @@ class AboutController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        $home =Home::find($id);
-        Storage::disk('public')->delete($home->img);
-        $img = $request->file('img');
-        $newName = Storage::disk('public')->put('',$img);
-        $home->icon = $request->input('icon');
-        $home->titre = $request->input('titre');
-        $home->paragraphe = $request->input('paragraphe');
-        $home->img = $newName;
-        $home->save();
-        return redirect()->route('about.tab');
-
 
         $about =About::find($id);
         Storage::disk('public')->delete($about->img);
         $img = $request->file('img');
-        $newName = Storage::disk('public')->put('',$img);
+        $aboutImg = Storage::disk('public')->put('',$img);
         $about->icon = $request->input('icon');
         $about->titre = $request->input('titre');
         $about->paragraphe = $request->input('paragraphe');
         $about->citation = $request->input('citation');
-        $about->img = $newName;
+        $about->img = $aboutImg;
         $about->save();
         return redirect()->route('about.tab');
     }

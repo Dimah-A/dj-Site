@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
 
         $homes = Home::all();
-        // dd($portfolio);
+        
         return view('tabHome' ,compact('homes'));    
     }
 
@@ -55,6 +55,8 @@ class HomeController extends Controller
             $home->icon = $request->input('icon');
             $home->titre = $request->input('titre');
             $home->paragraphe = $request->input('paragraphe');
+            $home->son = $request->input('son');
+
             $home->img = $newName;
             $home->save();
             return redirect()->route('tabHome');        
@@ -71,6 +73,8 @@ class HomeController extends Controller
         $home->icon = $request->input('icon');
         $home->titre = $request->input('titre');
         $home->paragraphe = $request->input('paragraphe');
+        $home->son = $request->input('son');
+
         $home->img = $newName;
         $home->save();
 

@@ -13,6 +13,8 @@ class RegisterMail extends Mailable
     public $name;
     public $email;
     public $password;
+    public $numero;
+    public $adresse;
 
     /**
      * Create a new message instance.
@@ -24,6 +26,9 @@ class RegisterMail extends Mailable
         $this->name =$data['name'];
         $this->email =$data['email'];
         $this->password =$data['password'];
+        $this->numero =$data['numero'];
+        $this->adresse =$data['adresse'];
+
     }
 
     /**
@@ -33,6 +38,6 @@ class RegisterMail extends Mailable
      */
     public function build()
     {
-        return $this->from('Dimah.assma@gmail.com')->markdown('mail.templateMail',compact('name','email','password'));
+        return $this->from('Dimah.assma@gmail.com')->markdown('mail.templateMail',compact('name','email','password','numero','adresse'));
     }
 }

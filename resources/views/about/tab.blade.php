@@ -2,6 +2,7 @@
 @extends('adminlte::page')
 
 @section('content')
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 
     
@@ -61,7 +62,7 @@
             <label class="text-secondary">citation</label>
             <textarea type="text" value="@if($errors->first('citation'))
             @else{{old('citation')}}  @endif" class="form-control mb-3 @error('citation') is-invalid @enderror" name='citation'  placeholder="citation" ></textarea>
-            @error('paragraphe')    
+            @error('paragraphe')
             <div class="text-danger">{{ $message }}
             </div>
             @enderror
@@ -91,41 +92,26 @@
                 
             </tr>
         </thead>
-        
         <tbody>
             @foreach ($abouts as $about)
-            <tr>
-                
-                
+            <tr>  
                 <th scope="row">{{$about->id}}</th>
                 <td><span class="{{$about->icon}}"></span></td>
                 <td>{{$about->titre}}</td>
-
+                <td><img class="img-fluid w-25" src="{{asset('storage/'.$about->img)}}" alt=""></td>
                 <td>{{$about->paragraphe}}</td>
                 <td>{{$about->citation}}</td>
-
-
                 <td>
-                    {{-- <img class="img-fluid w-25" src="{{asset('storage/'.$avatar->img)}}" alt=""> --}}
-                    
-                    <img class="img-fluid w-25" src="{{asset('storage/'.$about->img)}}" alt="">
+                    <a class="btn btn-danger" href="{{route('about.delete',$about->id)}}">Delete</a>
+                    <a class="btn btn-secondary mr-1" href="{{route('updateAbout',$about->id)}}"> edit</a> 
                 </td>
-                    
-                    <td>
-                        <a class="btn btn-danger" href="{{route('about.delete',$about->id)}}">
-                            Delete
-                        </a>
-                        
-                        <a class="btn btn-secondary mr-1" href="{{route('about.update',$about->id)}}">                    
-                            edit
-                        </a> 
-                    </td>
-                            
-                        </tr>
-                        @endforeach 
-                        <tbody>
-                        </table>
-                        
+ 
+            </tr>
+            @endforeach 
+            <tbody>
+            </table>
+            
+            
                         @stop
                         
                         

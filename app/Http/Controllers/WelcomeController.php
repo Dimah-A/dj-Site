@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Home;
 use App\About;
+use App\Album;
 
 class WelcomeController extends Controller
 {
@@ -17,9 +18,11 @@ class WelcomeController extends Controller
     {
         $homes = Home::all();
         $abouts = About::all();
+        $albums = Album::all();
+
 
         // dd($portfolio);
-        return view('welcome' ,compact('homes','abouts'));    
+        return view('welcome' ,compact('homes','abouts','albums'));    
     }
 
  

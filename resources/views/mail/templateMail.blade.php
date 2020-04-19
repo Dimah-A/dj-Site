@@ -1,4 +1,4 @@
-
+{{-- 
 
 <h1>Bonjour, {{$name}}</h1><br>
 
@@ -8,7 +8,7 @@
 <span>Avec le mot de passe : {{$password}}</span><br>
 
 <span>Merci pour ton inscription</span>
-<span>C'est sympa de t'etre inscrit, hate de te revoir ! </span>
+<span>C'est sympa de t'etre inscrit, hate de te revoir ! </span> --}}
 
 
 
@@ -16,12 +16,15 @@
 
 bonjour {{$name}} 
 
-Votre mail [{{$email}}] a bien été envoyé ! contacter moi sur facbook
+Votre mail [{{$email}}] a bien été envoyé ! <br>
+<hr>
 <span>Avec le mot de passe : {{$password}}</span><br>
-
+Votre Numero: {{$numero}} <br>
+Votre Adresse: {{$adresse}} <br>
+Si vos coordonnées ne sont pas correcte veuillez les modifier via ce lien:
 @component('mail::button', ['url' => 'https://www.facebook.com/profile.php?id=100020431292910&__tn__=%2CdC-R-R&eid=ARDbzdR4x54_BAgPBfxWeWSDhcy-gNfN-2ab6zliBaTizBrl5UqQru3XvIG4WL3yOpsGH6ioF0O8IjxM&hc_ref=ARQbv05z1dH01JmUSDPKiKnJ6WnLUDJscpeuhTSXTaoQ-i0-5AIUUtc8uq2ZidjZUMg&fref=nf'])
 
-Facebook
+Edit My Profil
 
 @endcomponent
 
