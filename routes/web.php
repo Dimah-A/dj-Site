@@ -57,7 +57,7 @@ Route::get('/album.edit/{id}', 'AlbumController@edit')->name('album.edit');
 
 Route::get('/playlist.tab','PlaylistController@index')->name('playlist.tab');
 Route::post('/playlist.save','PlaylistController@store')->name('playlist.save');
-Route::post('/updateplaylist/{id}','PlaylistController@update' )->name('updateplaylist');
+Route::get('/updateplaylist/{id}','PlaylistController@update' )->name('updateplaylist');
 Route::get('/playlist.delete/{id}', 'PlaylistController@destroy')->name('playlist.delete');
 Route::get('/playlist.edit/{id}', 'PlaylistController@edit')->name('playlist.edit');
 

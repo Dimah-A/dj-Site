@@ -94,12 +94,10 @@ class PlaylistController extends Controller
      * @param  \App\Playlist  $playlist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Playlist $playlist)
+    public function destroy( $id)
     {
         
     $playlist= Playlist::find($id);
-
-
     $playlist->delete();
     return  redirect()->route('playlist.tab');
     }

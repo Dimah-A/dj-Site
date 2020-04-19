@@ -1,18 +1,19 @@
      <!-- latest release starts-->
 
+     
      @foreach ($albums as $item)
-         
       <div id="album" class="releases spacer">
+        <h3><span class="{{$item->icon}}"></span> Album</h3>
 
-      <h3><span class="{{$item->icon}}"></span> Album</h3>
 
         <div class="row">
           <div class="col-sm-3 col-xs-12">
             <div class="album"><img src="{{asset('storage/'.$item->img)}}" class="img-responsive" alt="music theme" />
               <div class="albumdetail">
                 <h5>{{$item->titreSon}}</h5><a href="#" class="listen" data-toggle="modal" data-target="#albumdetail"><span
-                class="glyphicon glyphicon-headphones"></span>{{$item->lien}}</a>
+                class="glyphicon glyphicon-headphones"></span>{{$item->titreSon}}</a>
               </div>
+
             </div>
           </div>
 

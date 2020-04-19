@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Home;
 use App\About;
 use App\Album;
+use App\Playlist;
+
 
 class WelcomeController extends Controller
 {
@@ -19,10 +21,12 @@ class WelcomeController extends Controller
         $homes = Home::all();
         $abouts = About::all();
         $albums = Album::all();
+        $playlists = Playlist::all();
+
 
 
         // dd($portfolio);
-        return view('welcome' ,compact('homes','abouts','albums'));    
+        return view('welcome' ,compact('homes','abouts','albums','playlists'));    
     }
 
  

@@ -5,8 +5,9 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 
 
-    
-    <div class="p-3  bg-secondary  d-flex justify-content-center"><h1 class="text-light">Page de Modification du Playlist</h1></div>
+
+<div class="p-3  bg-secondary  d-flex justify-content-center"><h1 class="text-light">Page de Modification Playlist</h1></div>
+<div class="p-3  bg-secondary  d-flex justify-content-center"><h1 class="text-light">Copier coller le lien de votre playlist SoundCloud (cliquez sur partager/integrer et copier votre lien) </h1></div>
         
         <form  action="{{asset('playlist.save')}}" method="post" class="form-inline" enctype="multipart/form-data">
             @csrf
@@ -33,7 +34,6 @@
     </form>
     
     {{---------------------------------------------------------------------------------------------------------}}
-    <div class="p-3  bg-secondary  d-flex justify-content-center"><h1 class="text-light">Copier coller le lien de votre playlist (cliquez sur partager/integrer et copier votre lien) </h1></div>
 
     <table class="table table-striped  mt-5">
         <thead class="border border-info ">

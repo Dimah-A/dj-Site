@@ -151,12 +151,13 @@
                 <td>{{$home->titre}}</td>
 
                 <td>{{$home->paragraphe}}</td>
-
+                
                 <td>
-                    {{-- <img class="img-fluid w-25" src="{{asset('storage/'.$avatar->img)}}" alt=""> --}}
-                    
-                    <img class="img-fluid w-25" src="{{asset('storage/'.$home->img)}}" alt="">
+                  {{-- <img class="img-fluid w-25" src="{{asset('storage/'.$avatar->img)}}" alt=""> --}}
+                  
+                  <img class="img-fluid w-25" src="{{asset('storage/'.$home->img)}}" alt="">
                 </td>
+                <td>{{$home->son}}</td>
                     
                     <td>
                         <a class="btn btn-danger" href="{{route('deleteH',$home->id)}}">
